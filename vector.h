@@ -2,14 +2,14 @@
 #define VECTOR_H_INCLUDED
 
 #include <cmath>
-#include <GL/gl.h>
-#include "monitor.h"
 #include <iostream>
 #include <cstdlib>
 #include <stdint.h>
 
-namespace JRL
-{
+#ifndef M_PI
+#define M_PI (3.14159265358979323846)
+#endif // M_PI
+
 class Vector3D
 {
 public:
@@ -113,14 +113,6 @@ inline bool operator !=(Vector3D a, Vector3D b)
 inline Vector3D operator -(Vector3D a)
 {
     return Vector3D(-a.x, -a.y, -a.z);
-}
-
-inline void glVertex(Vector3D v)
-{
-    glVertex3f(v.x, v.y, v.z);
-#ifdef DEBUG
-    OnglVertex();
-#endif
 }
 
 inline std::ostream & operator <<(std::ostream & os, Vector3D v)

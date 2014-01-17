@@ -172,9 +172,9 @@ inline Vector3D apply(const Matrix4x4 & m, const Vector3D & v)
 
 inline Vector3D applyToNormal(const Matrix4x4 & m, const Vector3D & v)
 {
-    Vector3D p1 = apply(m, Vector3D(0, 0, 0));
-    Vector3D p2 = apply(m, v);
-    return normalize(p2 - p1);
+    return normalize(Vector3D(v.x * m(0, 0) + v.y * m(1, 0) + v.z * m(2, 0),
+                    v.x * m(0, 1) + v.y * m(1, 1) + v.z * m(2, 1),
+                    v.x * m(0, 2) + v.y * m(1, 2) + v.z * m(2, 2)));
 }
 
 inline Matrix4x4 concat(const Matrix4x4 & a, const Matrix4x4 & b)

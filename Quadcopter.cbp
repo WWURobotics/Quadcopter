@@ -38,6 +38,8 @@
 		<Unit filename="ninedofsensor.h" />
 		<Unit filename="sensor.cpp" />
 		<Unit filename="sensor.h" />
+		<Unit filename="timer.cpp" />
+		<Unit filename="timer.h" />
 		<Unit filename="vector.h" />
 		<Extensions>
 			<DoxyBlocks>

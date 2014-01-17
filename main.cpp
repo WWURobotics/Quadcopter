@@ -1,13 +1,11 @@
 #include "mbed.h"
 #include "UM6LT/UM6LT.h"
 #include "assert.h"
+#include "vector.h"
 #include <cmath>
 
 using namespace std;
 
-#ifndef M_PI
-#define M_PI (3.14159265358979323846)
-#endif // M_PI
 
 Serial pc(USBTX, USBRX);
 DigitalOut select(p8);
