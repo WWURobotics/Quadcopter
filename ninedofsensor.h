@@ -21,7 +21,7 @@ public:
     }
     const Vector3D absAccel() const
     {
-        return m_tform.applyToNormal(m_accel);
+        return applyToNormal(m_tform, m_accel);
     }
     const Vector3D absVel() const
     {

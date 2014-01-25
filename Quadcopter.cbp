@@ -4,13 +4,13 @@
 	<Project>
 		<Option title="Quadcopter" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc" />
+		<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
 		<Build>
 			<Target title="Debug">
 				<Option output="Quadcopter" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -19,9 +19,9 @@
 				<Option output="Quadcopter" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-Os" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -29,11 +29,85 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-mthumb" />
 			<Add option="-Wall" />
-			<Add option="-fexceptions" />
+			<Add option="-fno-common -fmessage-length=0" />
+			<Add option="-fno-exceptions" />
+			<Add option="-mcpu=cortex-m3" />
+			<Add option="-ffunction-sections" />
+			<Add option="-fdata-sections" />
+			<Add directory="mbed2" />
+			<Add directory="mbed2/LPC1768/GCC_CS" />
 		</Compiler>
+		<Linker>
+			<Add option="-mcpu=cortex-m3 -mthumb -Wl,--gc-sections" />
+			<Add option="-lcapi" />
+			<Add option="-lmbed" />
+			<Add option="mbed2/LPC1768/GCC_CS/sys.o" />
+			<Add option="mbed2/LPC1768/GCC_CS/cmsis_nvic.o" />
+			<Add option="mbed2/LPC1768/GCC_CS/system_LPC17xx.o" />
+			<Add option="mbed2/LPC1768/GCC_CS/core_cm3.o" />
+			<Add option="mbed2/LPC1768/GCC_CS/startup_LPC17xx.o" />
+			<Add option="-Tmbed2/LPC1768/GCC_CS/LPC1768.ld" />
+			<Add directory="mbed2/LPC1768/GCC_CS" />
+			<Add directory="mbed2" />
+			<Add directory="../../gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/lib" />
+		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="matrix.h" />
+		<Unit filename="mbed2/AnalogIn.h" />
+		<Unit filename="mbed2/AnalogOut.h" />
+		<Unit filename="mbed2/Base.h" />
+		<Unit filename="mbed2/BusIn.h" />
+		<Unit filename="mbed2/BusInOut.h" />
+		<Unit filename="mbed2/BusOut.h" />
+		<Unit filename="mbed2/CAN.h" />
+		<Unit filename="mbed2/DigitalIn.h" />
+		<Unit filename="mbed2/DigitalInOut.h" />
+		<Unit filename="mbed2/DigitalOut.h" />
+		<Unit filename="mbed2/DirHandle.h" />
+		<Unit filename="mbed2/Ethernet.h" />
+		<Unit filename="mbed2/FileHandle.h" />
+		<Unit filename="mbed2/FileLike.h" />
+		<Unit filename="mbed2/FileSystemLike.h" />
+		<Unit filename="mbed2/FunctionPointer.h" />
+		<Unit filename="mbed2/I2C.h" />
+		<Unit filename="mbed2/I2CSlave.h" />
+		<Unit filename="mbed2/InterruptIn.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/LPC17xx.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/cmsis.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/cmsis_nvic.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/core_cm3.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/core_cmFunc.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/core_cmInstr.h" />
+		<Unit filename="mbed2/LPC1768/GCC_CS/system_LPC17xx.h" />
+		<Unit filename="mbed2/LocalFileSystem.h" />
+		<Unit filename="mbed2/PeripheralNames.h" />
+		<Unit filename="mbed2/PinNames.h" />
+		<Unit filename="mbed2/PortIn.h" />
+		<Unit filename="mbed2/PortInOut.h" />
+		<Unit filename="mbed2/PortNames.h" />
+		<Unit filename="mbed2/PortOut.h" />
+		<Unit filename="mbed2/PwmOut.h" />
+		<Unit filename="mbed2/SPI.h" />
+		<Unit filename="mbed2/SPIHalfDuplex.h" />
+		<Unit filename="mbed2/SPISlave.h" />
+		<Unit filename="mbed2/Serial.h" />
+		<Unit filename="mbed2/SerialHalfDuplex.h" />
+		<Unit filename="mbed2/Stream.h" />
+		<Unit filename="mbed2/Ticker.h" />
+		<Unit filename="mbed2/Timeout.h" />
+		<Unit filename="mbed2/Timer.h" />
+		<Unit filename="mbed2/TimerEvent.h" />
+		<Unit filename="mbed2/can_helper.h" />
+		<Unit filename="mbed2/device.h" />
+		<Unit filename="mbed2/error.h" />
+		<Unit filename="mbed2/mbed.h" />
+		<Unit filename="mbed2/mbed_interface.h" />
+		<Unit filename="mbed2/platform.h" />
+		<Unit filename="mbed2/rpc.h" />
+		<Unit filename="mbed2/rtc_time.h" />
+		<Unit filename="mbed2/wait_api.h" />
 		<Unit filename="ninedofsensor.cpp" />
 		<Unit filename="ninedofsensor.h" />
 		<Unit filename="sensor.cpp" />

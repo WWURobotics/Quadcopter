@@ -1,0 +1,319 @@
+# depslib dependency file v1.0
+1390609102 source:/home/jacob/projects/Quadcopter/main.cpp
+	"mbed.h"
+	"assert.h"
+	"vector.h"
+	<cmath>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/mbed.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<time.h>
+	"error.h"
+	"mbed_interface.h"
+	"DigitalIn.h"
+	"DigitalOut.h"
+	"DigitalInOut.h"
+	"BusIn.h"
+	"BusOut.h"
+	"BusInOut.h"
+	"PortIn.h"
+	"PortInOut.h"
+	"PortOut.h"
+	"AnalogIn.h"
+	"AnalogOut.h"
+	"PwmOut.h"
+	"Serial.h"
+	"SerialHalfDuplex.h"
+	"SPI.h"
+	"SPISlave.h"
+	"SPIHalfDuplex.h"
+	"I2C.h"
+	"I2CSlave.h"
+	"Ethernet.h"
+	"CAN.h"
+	"Timer.h"
+	"Ticker.h"
+	"Timeout.h"
+	"LocalFileSystem.h"
+	"InterruptIn.h"
+	"wait_api.h"
+	"rtc_time.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/error.h
+	<stdlib.h>
+	<stdio.h>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/mbed_interface.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/DigitalIn.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/platform.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PinNames.h
+	"cmsis.h"
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/cmsis.h
+	"LPC17xx.h"
+	"cmsis_nvic.h"
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/LPC17xx.h
+	"core_cm3.h"
+	"system_LPC17xx.h"
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/core_cmInstr.h
+	<cmsis_iar.h>
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/core_cmFunc.h
+	<cmsis_iar.h>
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/system_LPC17xx.h
+
+1390607213 /home/jacob/projects/Quadcopter/mbed2/LPC1768/GCC_CS/cmsis_nvic.h
+	"cmsis.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PeripheralNames.h
+	"cmsis.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Base.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	<cstdlib>
+	"DirHandle.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/DirHandle.h
+	<sys/syslimits.h>
+	"FileHandle.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/FileHandle.h
+	<stdio.h>
+	<sys/types.h>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/DigitalOut.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/DigitalInOut.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/BusIn.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+	"DigitalIn.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/BusOut.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+	"DigitalOut.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/BusInOut.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+	"DigitalInOut.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PortIn.h
+	"device.h"
+	"PortNames.h"
+	"PinNames.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/device.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PortNames.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PortInOut.h
+	"device.h"
+	"PortNames.h"
+	"PinNames.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PortOut.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"Base.h"
+	"PortNames.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/AnalogIn.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/AnalogOut.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/PwmOut.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Serial.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Stream.h"
+	"FunctionPointer.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Stream.h
+	"FileLike.h"
+	"platform.h"
+	<cstdio>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/FileLike.h
+	"Base.h"
+	"FileHandle.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/FunctionPointer.h
+	<string.h>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/SerialHalfDuplex.h
+	"device.h"
+	"Serial.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/SPI.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/SPISlave.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/SPIHalfDuplex.h
+	"device.h"
+	"SPI.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/I2C.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/I2CSlave.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Ethernet.h
+	"device.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/CAN.h
+	"device.h"
+	"Base.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"can_helper.h"
+	"FunctionPointer.h"
+	<string.h>
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/can_helper.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Timer.h
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Ticker.h
+	"TimerEvent.h"
+	"FunctionPointer.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/TimerEvent.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/Timeout.h
+	"Ticker.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/LocalFileSystem.h
+	"FileSystemLike.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/FileSystemLike.h
+	<sys/fcntl.h>
+	"Base.h"
+	"FileHandle.h"
+	"DirHandle.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/InterruptIn.h
+	"device.h"
+	"platform.h"
+	"PinNames.h"
+	"PeripheralNames.h"
+	"Base.h"
+	"FunctionPointer.h"
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/wait_api.h
+
+1390607216 /home/jacob/projects/Quadcopter/mbed2/rtc_time.h
+	<time.h>
+
+1390609115 /home/jacob/projects/Quadcopter/vector.h
+	<cmath>
+	<iostream>
+	<cstdlib>
+	<stdint.h>
+
+1390003618 source:/home/jacob/projects/Quadcopter/sensor.cpp
+	"sensor.h"
+
+1390609319 /home/jacob/projects/Quadcopter/sensor.h
+	<ostream>
+
+1390609273 source:/home/jacob/projects/Quadcopter/timer.cpp
+	"timer.h"
+
+1390003618 /home/jacob/projects/Quadcopter/timer.h
+
+1390005590 source:/home/jacob/projects/Quadcopter/ninedofsensor.cpp
+	"ninedofsensor.h"
+	"timer.h"
+	<assert.h>
+
+1390609344 /home/jacob/projects/Quadcopter/ninedofsensor.h
+	"sensor.h"
+	"matrix.h"
+
+1390003618 /home/jacob/projects/Quadcopter/matrix.h
+	"vector.h"
+	<cmath>
+

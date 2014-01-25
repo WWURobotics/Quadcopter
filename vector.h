@@ -138,6 +138,6 @@ inline Vector3D VRand(uint32_t * randv = &CurrentRandom)
     }
     return normalize(retval);
 }
-}
+
 
 #endif // VECTOR_H_INCLUDED

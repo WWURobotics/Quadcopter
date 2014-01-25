@@ -1,6 +1,10 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include <ostream>
+
+using namespace std;
+
 class Sensor
 {
 public:

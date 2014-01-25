@@ -1,23 +1,14 @@
 #include "timer.h"
 
-Timer::Timer()
-{
-    //ctor
-}
-
-Timer::~Timer()
-{
-    //dtor
-}
-
 Timer_t & makeTimer()
 {
-    return new Timer;
+    return *new Timer_t;
 }
 
 Timer_t & Timer = makeTimer();
 
 double Timer_t::getTime() const
 {
-
+    //FIXME(jacob#):finish
+    return 0;
 }
