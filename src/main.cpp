@@ -6,7 +6,7 @@
 using namespace std;
 
 
-//Serial pc(USBTX, USBRX);
+Serial pc(USBTX, USBRX);
 //DigitalOut select(p8);
 //struct xy{
 //
@@ -68,7 +68,7 @@ using namespace std;
 // convert from 16 bit int to radians : 0.00019174710761185303
 
 int main() {
-    while(true){}
+    while(true){pc.printf("blah\r\n");}
 //UM6LT sensor(p9,p10);
 //I2C sensor(p9, p10);
 //    SPI sensor(p5, p6, p7);

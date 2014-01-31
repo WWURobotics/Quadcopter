@@ -15,5 +15,7 @@ bin
 obj
 *~
 *.layout
+Quadcopter.bin
+Quadcopter.elf
 
 

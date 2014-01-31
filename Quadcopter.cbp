@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="Quadcopter" />
+		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
 		<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
 		<Build>
@@ -38,6 +39,7 @@
 			<Add option="-fdata-sections" />
 			<Add directory="mbed2" />
 			<Add directory="mbed2/LPC1768/GCC_CS" />
+			<Add directory="include" />
 		</Compiler>
 		<Linker>
 			<Add option="-mcpu=cortex-m3 -mthumb -Wl,--gc-sections" />
@@ -53,8 +55,11 @@
 			<Add directory="mbed2" />
 			<Add directory="../../gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/lib" />
 		</Linker>
-		<Unit filename="main.cpp" />
-		<Unit filename="matrix.h" />
+		<Unit filename="include/matrix.h" />
+		<Unit filename="include/ninedofsensor.h" />
+		<Unit filename="include/sensor.h" />
+		<Unit filename="include/timer.h" />
+		<Unit filename="include/vector.h" />
 		<Unit filename="mbed2/AnalogIn.h" />
 		<Unit filename="mbed2/AnalogOut.h" />
 		<Unit filename="mbed2/Base.h" />
@@ -108,13 +113,10 @@
 		<Unit filename="mbed2/rpc.h" />
 		<Unit filename="mbed2/rtc_time.h" />
 		<Unit filename="mbed2/wait_api.h" />
-		<Unit filename="ninedofsensor.cpp" />
-		<Unit filename="ninedofsensor.h" />
-		<Unit filename="sensor.cpp" />
-		<Unit filename="sensor.h" />
-		<Unit filename="timer.cpp" />
-		<Unit filename="timer.h" />
-		<Unit filename="vector.h" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/ninedofsensor.cpp" />
+		<Unit filename="src/sensor.cpp" />
+		<Unit filename="src/timer.cpp" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
