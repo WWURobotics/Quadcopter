@@ -10,6 +10,9 @@
 #define M_PI (3.14159265358979323846)
 #endif // M_PI
 
+namespace quadcopter
+{
+
 class Vector3D
 {
 public:
@@ -125,19 +128,6 @@ inline std::istream & operator >>(std::istream & is, Vector3D & v)
     return is >> v.x >> v.y >> v.z;
 }
 
-extern uint32_t CurrentRandom;
-
-float FRand(uint32_t * randv = &CurrentRandom);
-
-inline Vector3D VRand(uint32_t * randv = &CurrentRandom)
-{
-    Vector3D retval = Vector3D(FRand(randv) * 2 - 1, FRand(randv) * 2 - 1, FRand(randv) * 2 - 1);
-    while(abs_squared(retval) > 1 || abs_squared(retval) < 0.001)
-    {
-        retval = Vector3D(FRand(randv) * 2 - 1, FRand(randv) * 2 - 1, FRand(randv) * 2 - 1);
-    }
-    return normalize(retval);
 }
-
 
 #endif // VECTOR_H_INCLUDED

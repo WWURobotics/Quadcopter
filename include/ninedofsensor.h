@@ -4,11 +4,13 @@
 #include "sensor.h"
 #include "matrix.h"
 
+namespace quadcopter
+{
+
 class NineDOFSensor : public Sensor
 {
 public:
     NineDOFSensor();
-    virtual ~NineDOFSensor();
     virtual void update() = 0;
     virtual void dump(ostream & os) const;
     const Matrix4x4 tform() const
@@ -46,5 +48,7 @@ private:
     Vector3D m_accel;
     Vector3D m_vel;
 };
+
+}
 
 #endif // NINEDOFSENSOR_H

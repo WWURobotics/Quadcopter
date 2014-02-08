@@ -1,12 +1,15 @@
-#include "mbed.h"
-#include "assert.h"
-#include "vector.h"
-#include <cmath>
+#include "mbedio.h"
+#include <string>
 
 using namespace std;
+using namespace quadcopter;
 
-
-Serial pc(USBTX, USBRX);
 int main()
 {
+    while(true)
+    {
+        string str;
+        mbedIn >> str;
+        mbedOut << str << endl;
+    }
 }

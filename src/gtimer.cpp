@@ -1,14 +1,11 @@
 #include "gtimer.h"
-#include "timer.h"
+#include <Timer.h>
 
-Timer_t & makeTimer()
+namespace quadcopter
 {
-    return *new Timer_t;
-}
-
-Timer_t & Timer = makeTimer();
-
-double Timer_t::getTime() const
+namespace global_time
+{
+double get()
 {
     static mbed::Timer timer;
     static uint64_t curTime = 0;
@@ -21,4 +18,6 @@ double Timer_t::getTime() const
     }
     t += curTime;
     return (double)t * 1e-6;
+}
+}
 }

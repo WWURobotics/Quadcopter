@@ -3,6 +3,9 @@
 
 #include <ostream>
 
+namespace quadcopter
+{
+
 using namespace std;
 
 class Sensor
@@ -21,5 +24,7 @@ public:
 protected:
 private:
 };
+
+}
 
 #endif // SENSOR_H

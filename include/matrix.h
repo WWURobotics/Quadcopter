@@ -5,6 +5,9 @@
 
 #include <cmath>
 
+namespace quadcopter
+{
+
 class Matrix4x4
 {
     float x[4][3];
@@ -125,6 +128,7 @@ public:
     {
         return scale(s, s, s);
     }
+    friend ostream & operator <<(ostream & os, const Matrix4x4 & m);
 };
 
 inline Matrix4x4 transpose(const Matrix4x4 & m)
@@ -191,6 +195,23 @@ inline Matrix4x4 concat(const Matrix4x4 & a, const Matrix4x4 & b)
                      a(1, 0) * b(0, 2) + a(1, 1) * b(1, 2) + a(1, 2) * b(2, 2),
                      a(2, 0) * b(0, 2) + a(2, 1) * b(1, 2) + a(2, 2) * b(2, 2),
                      a(3, 0) * b(0, 2) + a(3, 1) * b(1, 2) + a(3, 2) * b(2, 2) + b(3, 2));
+}
+
+inline ostream & operator <<(ostream & os, const Matrix4x4 & m)
+{
+    os << endl;
+    for(int y = 0; y < 4; y++)
+    {
+        os << "{";
+        for(int x = 0; x < 4; x++)
+        {
+            os << " " << m(x, y);
+        }
+        os << " }\n";
+    }
+    return os << endl;
+}
+
 }
 
 #endif // MATRIX_H_INCLUDED

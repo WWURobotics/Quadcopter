@@ -6,60 +6,47 @@
 		<Option makefile_is_custom="1" />
 		<Option pch_mode="2" />
 		<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
+		<MakeCommands>
+			<Build command="" />
+			<CompileFile command="" />
+			<Clean command="" />
+			<DistClean command="" />
+			<AskRebuildNeeded command="" />
+			<SilentBuild command=" &gt; $(CMD_NULL)" />
+		</MakeCommands>
 		<Build>
-			<Target title="Debug">
-				<Option output="Quadcopter" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
 			<Target title="Release">
 				<Option output="Quadcopter" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
+				<Option compiler="null" />
 				<Compiler>
 					<Add option="-Os" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 				</Linker>
+				<ExtraCommands>
+					<Add before="make" />
+					<Mode after="always" />
+				</ExtraCommands>
+				<MakeCommands>
+					<Build command="make " />
+					<CompileFile command="make $file" />
+					<Clean command="make clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="make -q" />
+					<SilentBuild command="make  &gt; $(CMD_NULL)" />
+				</MakeCommands>
 			</Target>
 		</Build>
-		<Compiler>
-			<Add option="-mthumb" />
-			<Add option="-Wall" />
-			<Add option="-fno-common -fmessage-length=0" />
-			<Add option="-fno-exceptions" />
-			<Add option="-mcpu=cortex-m3" />
-			<Add option="-ffunction-sections" />
-			<Add option="-fdata-sections" />
-			<Add directory="mbed2" />
-			<Add directory="mbed2/LPC1768/GCC_CS" />
-			<Add directory="include" />
-		</Compiler>
-		<Linker>
-			<Add option="-mcpu=cortex-m3 -mthumb -Wl,--gc-sections" />
-			<Add option="-lcapi" />
-			<Add option="-lmbed" />
-			<Add option="mbed2/LPC1768/GCC_CS/sys.o" />
-			<Add option="mbed2/LPC1768/GCC_CS/cmsis_nvic.o" />
-			<Add option="mbed2/LPC1768/GCC_CS/system_LPC17xx.o" />
-			<Add option="mbed2/LPC1768/GCC_CS/core_cm3.o" />
-			<Add option="mbed2/LPC1768/GCC_CS/startup_LPC17xx.o" />
-			<Add option="-Tmbed2/LPC1768/GCC_CS/LPC1768.ld" />
-			<Add directory="mbed2/LPC1768/GCC_CS" />
-			<Add directory="mbed2" />
-			<Add directory="../../gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/lib" />
-		</Linker>
+		<Unit filename="Makefile" />
+		<Unit filename="include/gtimer.h" />
 		<Unit filename="include/matrix.h" />
+		<Unit filename="include/mbedio.h" />
 		<Unit filename="include/ninedofsensor.h" />
 		<Unit filename="include/scheduler.h" />
 		<Unit filename="include/sensor.h" />
-		<Unit filename="include/timer.h" />
 		<Unit filename="include/vector.h" />
 		<Unit filename="mbed2/AnalogIn.h" />
 		<Unit filename="mbed2/AnalogOut.h" />
@@ -116,9 +103,11 @@
 		<Unit filename="mbed2/wait_api.h" />
 		<Unit filename="src/gtimer.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/mbedio.cpp" />
 		<Unit filename="src/ninedofsensor.cpp" />
 		<Unit filename="src/scheduler.cpp" />
 		<Unit filename="src/sensor.cpp" />
+		<Unit filename="src/vector.cpp" />
 		<Extensions>
 			<DoxyBlocks>
 				<comment_style block="0" line="0" />
