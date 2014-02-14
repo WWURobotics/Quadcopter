@@ -30,23 +30,12 @@ public:
         return m_vel;
     }
 protected:
-    void tform(const Matrix4x4 v)
-    {
-        m_tform = v;
-    }
-    void rawAccel(const Vector3D v)
-    {
-        m_accel = v;
-    }
-    void absVel(const Vector3D v)
-    {
-        m_vel = v;
-    }
-    void handleUpdate();
+    void handleUpdate(Vector3D relativeAcceleration, Matrix4x4 normalizedRotation);
 private:
     Matrix4x4 m_tform;
     Vector3D m_accel;
     Vector3D m_vel;
+    double lastTime;
 };
 
 }
