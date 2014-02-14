@@ -1,4 +1,5 @@
 #include "mbedio.h"
+#include "gtimer.h"
 #include <string>
 
 using namespace std;
@@ -8,8 +9,6 @@ int main()
 {
     while(true)
     {
-        string str;
-        mbedIn >> str;
-        mbedOut << str << endl;
+        mbedOut << global_time::get() << endl;
     }
 }

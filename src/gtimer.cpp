@@ -1,4 +1,5 @@
 #include "gtimer.h"
+#include "mbedio.h"
 #include <Timer.h>
 
 namespace quadcopter
@@ -7,16 +8,21 @@ namespace global_time
 {
 double get()
 {
-    static mbed::Timer timer;
-    static uint64_t curTime = 0;
-    uint64_t t = timer.read_us();
+    static mbed::Timer * timer = nullptr;
+    static uint64_t curTimeOffset = 0;
+    if(timer == nullptr)
+    {
+        timer = new mbed::Timer;
+        timer->start();
+    }
+    uint64_t t = timer->read_us();
     if(t > 100000)
     {
-        curTime += t;
-        timer.reset();
+        curTimeOffset += t;
+        timer->reset();
         t = 0;
     }
-    t += curTime;
+    t += curTimeOffset;
     return (double)t * 1e-6;
 }
 }
