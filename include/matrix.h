@@ -174,6 +174,11 @@ inline Vector3D apply(const Matrix4x4 & m, const Vector3D & v)
                     v.x * m(0, 2) + v.y * m(1, 2) + v.z * m(2, 2) + m(3, 2));
 }
 
+inline Vector3D getTranslation(const Matrix4x4 & m)
+{
+    return Vector3D(m(3, 0), m(3, 1), m(3, 2));
+}
+
 inline Vector3D applyToNormal(const Matrix4x4 & m, const Vector3D & v)
 {
     return normalize(Vector3D(v.x * m(0, 0) + v.y * m(1, 0) + v.z * m(2, 0),
@@ -195,6 +200,14 @@ inline Matrix4x4 concat(const Matrix4x4 & a, const Matrix4x4 & b)
                      a(1, 0) * b(0, 2) + a(1, 1) * b(1, 2) + a(1, 2) * b(2, 2),
                      a(2, 0) * b(0, 2) + a(2, 1) * b(1, 2) + a(2, 2) * b(2, 2),
                      a(3, 0) * b(0, 2) + a(3, 1) * b(1, 2) + a(3, 2) * b(2, 2) + b(3, 2));
+}
+
+inline Matrix4x4 setTranslation(Matrix4x4 m, const Vector3D & translation)
+{
+    m(3, 0) = translation.x;
+    m(3, 1) = translation.y;
+    m(3, 2) = translation.z;
+    return m;
 }
 
 inline ostream & operator <<(ostream & os, const Matrix4x4 & m)

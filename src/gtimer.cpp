@@ -16,10 +16,10 @@ double get()
         timer->start();
     }
     uint64_t t = timer->read_us();
-    if(t > 100000)
+    if(t > 10000000)
     {
-        curTimeOffset += t;
         timer->reset();
+        curTimeOffset += t;
         t = 0;
     }
     t += curTimeOffset;

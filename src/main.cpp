@@ -9,6 +9,6 @@ int main()
 {
     while(true)
     {
-        mbedOut << global_time::get() << endl;
+        mbedOut << std::setprecision(9) << global_time::get() << endl;
     }
 }

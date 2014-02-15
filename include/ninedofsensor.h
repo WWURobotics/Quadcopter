@@ -6,7 +6,15 @@
 
 namespace quadcopter
 {
-
+extern Vector3D gravityVector;
+inline float convertFromGsToMetersPerSecondSquared(float v)
+{
+    return v * 9.80665;
+}
+inline Vector3D convertFromGsToMetersPerSecondSquared(Vector3D v)
+{
+    return v * 9.80665;
+}
 class NineDOFSensor : public Sensor
 {
 public:

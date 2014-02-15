@@ -5,6 +5,8 @@
 namespace quadcopter
 {
 
+Vector3D gravityVector(0, -9.80665, 0);
+
 NineDOFSensor::NineDOFSensor()
 {
     m_tform = Matrix4x4::identity();
@@ -21,7 +23,18 @@ void NineDOFSensor::dump(ostream & os) const
 
 void NineDOFSensor::handleUpdate(Vector3D relativeAcceleration, Matrix4x4 normalizedRotation)
 {
-
+    double curTime = global_time::get();
+    m_accel = relativeAcceleration;
+    m_tform = setTranslation(normalizedRotation, getTranslation(m_tform));
+    if(lastTime < 0)
+    {
+        lastTime = curTime;
+        return;
+    }
+    float deltaTime = curTime - lastTime;
+    lastTime = curTime;
+    m_vel += deltaTime * (absAccel() - gravityVector);
+    m_tform = setTranslation(normalizedRotation, getTranslation(m_tform) + deltaTime * m_vel);
 }
 
 }

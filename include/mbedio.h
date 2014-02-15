@@ -2,6 +2,7 @@
 #define MBEDIO_H_INCLUDED
 
 #include <iostream>
+#include <iomanip>
 
 #ifndef MBED_STREAM_H
 namespace mbed
