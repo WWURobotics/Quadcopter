@@ -3,9 +3,4 @@
 namespace quadcopter
 {
 
-Scheduler::Scheduler()
-{
-    //ctor
-}
-
 }

@@ -2,13 +2,14 @@
 #define SENSOR_H
 
 #include <ostream>
+#include "scheduler.h"
 
 namespace quadcopter
 {
 
 using namespace std;
 
-class Sensor
+class Sensor : public Runnable
 {
 public:
     Sensor();

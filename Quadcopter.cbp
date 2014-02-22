@@ -7,12 +7,12 @@
 		<Option pch_mode="2" />
 		<Option compiler="gnu_arm_gcc_compiler_for_mbed" />
 		<MakeCommands>
-			<Build command="" />
-			<CompileFile command="" />
-			<Clean command="" />
-			<DistClean command="" />
-			<AskRebuildNeeded command="" />
-			<SilentBuild command=" &gt; $(CMD_NULL)" />
+			<Build command="make " />
+			<CompileFile command="make $file" />
+			<Clean command="make clean" />
+			<DistClean command="$make -f $makefile distclean$target" />
+			<AskRebuildNeeded command="make -q" />
+			<SilentBuild command="make  &gt; $(CMD_NULL)" />
 		</MakeCommands>
 		<Build>
 			<Target title="Release">
@@ -40,6 +40,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Compiler>
+			<Add option="-Os" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+		</Linker>
+		<ExtraCommands>
+			<Add before="make" />
+			<Mode after="always" />
+		</ExtraCommands>
 		<Unit filename="Makefile" />
 		<Unit filename="include/gtimer.h" />
 		<Unit filename="include/matrix.h" />
@@ -47,6 +57,8 @@
 		<Unit filename="include/ninedofsensor.h" />
 		<Unit filename="include/scheduler.h" />
 		<Unit filename="include/sensor.h" />
+		<Unit filename="include/um6lt.h" />
+		<Unit filename="include/utility.h" />
 		<Unit filename="include/vector.h" />
 		<Unit filename="mbed2/AnalogIn.h" />
 		<Unit filename="mbed2/AnalogOut.h" />
@@ -107,6 +119,7 @@
 		<Unit filename="src/ninedofsensor.cpp" />
 		<Unit filename="src/scheduler.cpp" />
 		<Unit filename="src/sensor.cpp" />
+		<Unit filename="src/um6lt.cpp" />
 		<Unit filename="src/vector.cpp" />
 		<Extensions>
 			<DoxyBlocks>
