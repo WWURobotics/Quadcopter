@@ -1,6 +1,6 @@
 #include "gtimer.h"
 #include "mbedio.h"
-#include <Timer.h>
+#include "mbed.h"
 
 namespace quadcopter
 {
@@ -25,5 +25,9 @@ double get()
     t += curTimeOffset;
     return (double)t * 1e-6;
 }
+}
+void delay(float time)
+{
+    wait(time);
 }
 }

@@ -7,6 +7,7 @@ namespace global_time
 {
     double get();
 }
+void delay(float);
 }
 
 #endif // TIMER_H

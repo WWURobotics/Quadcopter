@@ -32,7 +32,7 @@ Debug: all
 Release: all
 
 all: clean $(PROJECT).bin
-	bash -c "cp -v $(PROJECT).bin /media/MBED 2>&1"
+	bash -c "cp -v $(PROJECT).bin /media/MBED 2>&1; sync"
 
 clean:
 	rm -f $(PROJECT).bin $(PROJECT).elf $(OBJECTS)

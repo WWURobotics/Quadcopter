@@ -2,7 +2,9 @@
 #define UM6LT_H_INCLUDED
 
 #include "ninedofsensor.h"
-#include "mbed2/mbed.h"
+#include "PinNames.h"
+#include "SPI.h"
+#include "DigitalOut.h"
 
 namespace quadcopter
 {
@@ -12,7 +14,7 @@ private:
     mbed::SPI spi;
     mbed::DigitalOut select;
 public:
-    explicit UM6LT(mbed::PinName select, mbed::PinName mosi, mbed::PinName miso, mbed::PinName sck);
+    explicit UM6LT(PinName select, PinName mosi, PinName miso, PinName sck);
     virtual void update() override;
 };
 }

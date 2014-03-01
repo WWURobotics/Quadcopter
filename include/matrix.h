@@ -40,6 +40,12 @@ public:
                          0, 0, 0, 0,
                          0, 0, 0, 0);
     }
+    static Matrix4x4 fromNormalizedQuaternion(float a, float b, float c, float d)
+    {
+        return Matrix4x4(a * a + b * b - c * c - d * d, 2 * b * c - 2 * a * d, 2 * b * d + 2 * a * c, 0,
+                         2 * b * c + 2 * a * d, a * a - b * b + c * c - d * d, 2 * c * d - 2 * a * b, 0,
+                         2 * b * d - 2 * a * c, 2 * c * d + 2 * a * b, a * a - b * b - c * c + d * d, 0);
+    }
     inline float & operator()(int xindex, int yindex)
     {
         static float errorval;
