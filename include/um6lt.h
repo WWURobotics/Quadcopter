@@ -13,6 +13,8 @@ class UM6LT final : public NineDOFSensor
 private:
     mbed::SPI spi;
     mbed::DigitalOut select;
+    Vector3D accelBiasVector;
+    Vector3D readAccelVector();
 public:
     explicit UM6LT(PinName select, PinName mosi, PinName miso, PinName sck);
     virtual void update() override;

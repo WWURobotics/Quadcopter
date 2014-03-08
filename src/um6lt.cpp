@@ -187,8 +187,11 @@ UM6LT::UM6LT(PinName select, PinName mosi, PinName miso, PinName sck)
     spi.frequency(100000);
     delay(0.001);
     writeRegister<uint32_t>(um6ltMISC_CONFIG, spi, this->select, 0xF0000000U); // um6lt datasheet p.35
-    delay(0.1);
+    writeRegister<uint32_t>(um6ltZERO_GYROS, spi, this->select, 0);
+    delay(3.6);
     //TODO(jacob#): check for self test failure in um6ltSTATUS
+    accelBiasVector = Vector3D(0, 1, 0) + readAccelVector();
+    mbedOut << "accel bias : <" << accelBiasVector.x << ", " << accelBiasVector.y << ", " << accelBiasVector.z << ">" << "\x1b[K" << endl;
 }
 
 namespace
@@ -214,14 +217,22 @@ void UM6LT::update()
     qb = um6ltQUATERNION_FACTOR * qab.b;
     qc = um6ltQUATERNION_FACTOR * qcd.a;
     qd = um6ltQUATERNION_FACTOR * qcd.b;
+    //mbedOut << "quaternion : " << qa << " " << qb << " " << qc << " " << qd << "\x1b[K" << endl;
+    Vector3D acceleration = readAccelVector() - accelBiasVector;
+    handleUpdate(convertFromGsToMetersPerSecondSquared(acceleration), concat(concat(Matrix4x4(1,0,0,0,0,0,1,0,0,1,0,0), Matrix4x4::fromNormalizedQuaternion(qa, qb, qc, qd)), Matrix4x4(1,0,0,0,0,0,1,0,0,1,0,0)));
+}
+
+Vector3D UM6LT::readAccelVector()
+{
     Vector3D acceleration;
     auto axy = readRegister<int16_t_x2>(um6ltACCEL_PROC_XY, spi, select);
     auto az = readRegister<int16_t_x2>(um6ltACCEL_PROC_Z, spi, select);
-    mbedOut << "read accel : XY : " << axy.a << " " << axy.b << " : Z : " << az.a << " " << az.b << endl;
+    //mbedOut << "read accel : XY : " << axy.a << " " << axy.b << " : Z : " << az.a << " " << az.b << "\x1b[K" << endl;
     acceleration.x = axy.a * um6ltACCEL_FACTOR;
-    acceleration.y = axy.b * um6ltACCEL_FACTOR;
-    acceleration.z = az.a * um6ltACCEL_FACTOR;
-    handleUpdate(convertFromGsToMetersPerSecondSquared(acceleration), Matrix4x4::fromNormalizedQuaternion(qa, qb, qc, qd));
+    acceleration.z = axy.b * um6ltACCEL_FACTOR;
+    acceleration.y = az.a * um6ltACCEL_FACTOR;
+    //mbedOut << "read accel : <" << acceleration.x << ", " << acceleration.y << ", " << acceleration.z << ">" << "\x1b[K" << endl;
+    return acceleration;
 }
 
 /*

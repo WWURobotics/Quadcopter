@@ -1,5 +1,6 @@
 #include "ninedofsensor.h"
 #include "gtimer.h"
+#include "mbedio.h"
 #include <assert.h>
 
 namespace quadcopter
@@ -17,8 +18,8 @@ NineDOFSensor::NineDOFSensor()
 
 void NineDOFSensor::dump(ostream & os) const
 {
-    os << "NineDOFSensor:\n";
-    os << "TransformationMatrix: " << m_tform << "\nVelocity: " << m_vel << "\nrel Acceleration: " << m_accel << "\nLast Update Time :" << lastTime << endl;
+    os << "NineDOFSensor:\x1b[K\n";
+    os << "TransformationMatrix: " << m_tform << "\x1b[K\nVelocity: " << m_vel << "\x1b[K\nrel Acceleration: " << m_accel << "\x1b[K\nabs Acceleration: " << absAccel() << "\x1b[K\nLast Update Time :" << lastTime << "\x1b[K" << endl;
 }
 
 void NineDOFSensor::handleUpdate(Vector3D relativeAcceleration, Matrix4x4 normalizedRotation)
@@ -33,6 +34,7 @@ void NineDOFSensor::handleUpdate(Vector3D relativeAcceleration, Matrix4x4 normal
     }
     float deltaTime = curTime - lastTime;
     lastTime = curTime;
+    //mbedOut << "fixed acceleration : " << (absAccel() - gravityVector) << "\x1b[K" << endl;
     m_vel += deltaTime * (absAccel() - gravityVector);
     m_tform = setTranslation(normalizedRotation, getTranslation(m_tform) + deltaTime * m_vel);
 }

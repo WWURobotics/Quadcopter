@@ -218,17 +218,17 @@ inline Matrix4x4 setTranslation(Matrix4x4 m, const Vector3D & translation)
 
 inline ostream & operator <<(ostream & os, const Matrix4x4 & m)
 {
-    os << endl;
+    os << "\x1b[K" << endl;
     for(int y = 0; y < 4; y++)
     {
         os << "{";
         for(int x = 0; x < 4; x++)
         {
-            os << " " << m(x, y);
+            os << " " << x << "," << y << " " << m(x, y);
         }
-        os << " }\n";
+        os << " }\x1b[K\n";
     }
-    return os << endl;
+    return os << "\x1b[K" << endl;
 }
 
 }
