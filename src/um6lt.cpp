@@ -142,7 +142,7 @@ T readRegister(int reg, mbed::SPI &sensor, mbed::DigitalOut &select)
     }
 
     select = 1;
-    wait(0.001);
+    delay(0.0001);
     return retval;
 }
 
@@ -172,9 +172,8 @@ void writeRegister(int reg, mbed::SPI &sensor, mbed::DigitalOut &select, T value
             sensor.write(0);
         }
     }
-
+    delay(0.0001);
     select = 1;
-    wait(0.001);
 }
 
 

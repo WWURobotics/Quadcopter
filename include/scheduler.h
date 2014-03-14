@@ -21,15 +21,28 @@ struct Runnable
 class FnRunnable final : public Runnable
 {
 private:
-    void (*fn)();
+    void (*fn)(void *);
+    void *arg;
+    void (*deleteFn)(void *);
 public:
-    explicit FnRunnable(void (*fn)())
-        : fn(fn)
+    template <typename T>
+    explicit FnRunnable(void (*fn)(T *arg), T *arg, void (*deleteFn)(T *arg) = nullptr)
+        : fn((void (*)(void *))fn), arg((void *)arg), deleteFn((void (*)(void *))deleteFn)
     {
+    }
+    template <typename Function>
+    explicit FnRunnable(Function fnObject)
+        : fn([](void * fnObjectIn){(*(Function *)fnObjectIn)();}), arg((void *)new Function(fnObject)), deleteFn([](void * objIn){delete (Function *)objIn;})
+    {
+    }
+    virtual ~FnRunnable()
+    {
+        if(deleteFn != nullptr)
+            deleteFn(arg);
     }
     virtual void update() override
     {
-        fn();
+        fn(arg);
     }
 };
 

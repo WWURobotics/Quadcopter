@@ -1,6 +1,6 @@
 #include "mbedio.h"
-#include <Stream.h>
-#include <Serial.h>
+#include <mbed2/Stream.h>
+#include <mbed2/Serial.h>
 
 using namespace std;
 
