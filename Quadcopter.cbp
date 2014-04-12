@@ -54,7 +54,10 @@
 		<Unit filename="include/gtimer.h" />
 		<Unit filename="include/matrix.h" />
 		<Unit filename="include/mbedio.h" />
+		<Unit filename="include/motor.h" />
+		<Unit filename="include/motor_implementation.h" />
 		<Unit filename="include/ninedofsensor.h" />
+		<Unit filename="include/output.h" />
 		<Unit filename="include/scheduler.h" />
 		<Unit filename="include/sensor.h" />
 		<Unit filename="include/um6lt.h" />

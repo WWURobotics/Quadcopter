@@ -72,7 +72,15 @@ int quadcopter::mbedStreamBuf::internalGet()
 
 namespace
 {
-    mbed::Serial pc(USBTX, USBRX);
+mbed::Serial pc(USBTX, USBRX);
+class Test
+{
+    public:
+    Test()
+    {
+        //pc.printf("this is a test.\r\n");
+    }
+} testVar;
 }
 
 quadcopter::imbedStream quadcopter::mbedIn(pc);
