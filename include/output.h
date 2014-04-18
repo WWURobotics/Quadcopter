@@ -4,6 +4,7 @@
 #include "scheduler.h"
 #include <array>
 #include <ostream>
+#include <cassert>
 
 using namespace std;
 
@@ -17,12 +18,15 @@ class Output : public Runnable
     Output(const Output &) = delete;
     const Output & operator =(const Output &) = delete;
 private:
-    array<float> channels;
+    array<float, N> channels;
 public:
+    Output()
+    {
+    }
     static constexpr size_t channelCount = N;
     const float & operator [](int channel) const
     {
-        assert(channel >= 0 && channel < channelCount);
+        assert(channel >= 0 && (unsigned)channel < channelCount);
         return channels[channel];
     }
     const float & operator *() const
@@ -31,7 +35,7 @@ public:
     }
     float & operator [](int channel)
     {
-        assert(channel >= 0 && channel < channelCount);
+        assert(channel >= 0 && (unsigned)channel < channelCount);
         return channels[channel];
     }
     float & operator *()
@@ -50,27 +54,27 @@ public:
     {
         set(0, value);
     }
-    auto begin() const
+    auto begin() const -> decltype(channels.cbegin())
     {
         return channels.cbegin();
     }
-    auto cbegin() const
+    auto cbegin() const -> decltype(channels.cbegin())
     {
         return channels.cbegin();
     }
-    auto begin()
+    auto begin() -> decltype(channels.begin())
     {
         return channels.begin();
     }
-    auto end() const
+    auto end() const -> decltype(channels.cend())
     {
         return channels.cend();
     }
-    auto cend() const
+    auto cend() const -> decltype(channels.cend())
     {
         return channels.cend();
     }
-    auto end()
+    auto end() -> decltype(channels.end())
     {
         return channels.end();
     }

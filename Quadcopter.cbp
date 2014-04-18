@@ -51,6 +51,7 @@
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="Makefile" />
+		<Unit filename="include/analog_input.h" />
 		<Unit filename="include/gtimer.h" />
 		<Unit filename="include/matrix.h" />
 		<Unit filename="include/mbedio.h" />

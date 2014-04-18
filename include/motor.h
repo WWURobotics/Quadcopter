@@ -8,6 +8,9 @@ namespace quadcopter
 class Motor : public SingleChannelOutput
 {
 public:
+    Motor()
+    {
+    }
     virtual void dump(ostream & os) const override
     {
         os << "Motor : Speed = " << get() << "RPM\n";
