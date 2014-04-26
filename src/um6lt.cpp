@@ -3,6 +3,9 @@
 #include "gtimer.h"
 #include "mbedio.h"
 #include <cstdint>
+#include <sstream>
+
+using namespace std;
 
 namespace quadcopter
 {
@@ -176,6 +179,10 @@ void writeRegister(int reg, mbed::SPI &sensor, mbed::DigitalOut &select, T value
     select = 1;
 }
 
+#if 1
+#define DUMP_QUATERNION
+string lastQuaternionValue = "";
+#endif
 
 }
 
@@ -216,7 +223,11 @@ void UM6LT::update()
     qb = um6ltQUATERNION_FACTOR * qab.b;
     qc = um6ltQUATERNION_FACTOR * qcd.a;
     qd = um6ltQUATERNION_FACTOR * qcd.b;
-    //mbedOut << "quaternion : " << qa << " " << qb << " " << qc << " " << qd << "\x1b[K" << endl;
+#ifdef DUMP_QUATERNION
+    ostringstream os;
+    os << "quaternion : " << qa << " " << qb << " " << qc << " " << qd << "\x1b[K" << endl;
+    lastQuaternionValue = os.str();
+#endif // DUMP_QUATERNION
     Vector3D acceleration = readAccelVector() - accelBiasVector;
     handleUpdate(convertFromGsToMetersPerSecondSquared(acceleration), concat(concat(Matrix4x4(1,0,0,0,0,0,1,0,0,1,0,0), Matrix4x4::fromNormalizedQuaternion(qa, qb, qc, qd)), Matrix4x4(1,0,0,0,0,0,1,0,0,1,0,0)));
 }
@@ -232,6 +243,14 @@ Vector3D UM6LT::readAccelVector()
     acceleration.y = az.a * um6ltACCEL_FACTOR;
     //mbedOut << "read accel : <" << acceleration.x << ", " << acceleration.y << ", " << acceleration.z << ">" << "\x1b[K" << endl;
     return acceleration;
+}
+
+void UM6LT::dump(ostream & os) const
+{
+    NineDOFSensor::dump(os);
+#ifdef DUMP_QUATERNION
+    os << lastQuaternionValue;
+#endif // DUMP_QUATERNION
 }
 
 /*

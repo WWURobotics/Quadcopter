@@ -18,6 +18,7 @@ private:
 public:
     explicit UM6LT(PinName select, PinName mosi, PinName miso, PinName sck);
     virtual void update() override;
+    virtual void dump(ostream & os) const override;
 };
 }
 

@@ -20,7 +20,7 @@ class NineDOFSensor : public Sensor
 public:
     NineDOFSensor();
     virtual void update() = 0;
-    virtual void dump(ostream & os) const;
+    virtual void dump(ostream & os) const override;
     const Matrix4x4 tform() const
     {
         return m_tform;
