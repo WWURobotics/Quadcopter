@@ -51,12 +51,14 @@
 			<Mode after="always" />
 		</ExtraCommands>
 		<Unit filename="Makefile" />
+		<Unit filename="include/MPU6050.h" />
 		<Unit filename="include/analog_input.h" />
 		<Unit filename="include/gtimer.h" />
 		<Unit filename="include/matrix.h" />
 		<Unit filename="include/mbedio.h" />
 		<Unit filename="include/motor.h" />
 		<Unit filename="include/motor_implementation.h" />
+		<Unit filename="include/mpu6050_ninedofsensor.h" />
 		<Unit filename="include/ninedofsensor.h" />
 		<Unit filename="include/output.h" />
 		<Unit filename="include/scheduler.h" />
@@ -117,6 +119,7 @@
 		<Unit filename="mbed2/rpc.h" />
 		<Unit filename="mbed2/rtc_time.h" />
 		<Unit filename="mbed2/wait_api.h" />
+		<Unit filename="src/MPU6050.cpp" />
 		<Unit filename="src/gtimer.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/mbedio.cpp" />

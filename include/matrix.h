@@ -231,6 +231,28 @@ inline ostream & operator <<(ostream & os, const Matrix4x4 & m)
     return os << "\x1b[K" << endl;
 }
 
+inline Matrix4x4 rotationReflectionOnly(Matrix4x4 m)
+{
+    m = setTranslation(m, Vector3D(0, 0, 0));
+    Vector3D vx = normalize(apply(m, Vector3D(1, 0, 0)));
+    Vector3D vy = apply(m, Vector3D(0, 1, 0));
+    Vector3D vz = apply(m, Vector3D(0, 0, 1));
+    Vector3D newVY = normalize(cross_prod(vx, vz));
+    if(dot_prod(newVY, vy) < 0)
+    {
+        newVY = -newVY;
+    }
+    Vector3D newVZ = normalize(cross_prod(vx, newVY));
+    if(dot_prod(newVZ, vz) < 0)
+    {
+        newVZ = -newVZ;
+    }
+    Vector3D newVX = vx;
+    return Matrix4x4(newVX.x, newVY.x, newVZ.x, 0,
+                     newVX.y, newVY.y, newVZ.y, 0,
+                     newVX.z, newVY.z, newVZ.z, 0);
+}
+
 }
 
 #endif // MATRIX_H_INCLUDED
