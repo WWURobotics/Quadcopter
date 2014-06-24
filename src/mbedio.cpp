@@ -78,6 +78,7 @@ class Test
     public:
     Test()
     {
+        //pc.baud(115200);
         //pc.printf("this is a test.\r\n");
     }
 } testVar;

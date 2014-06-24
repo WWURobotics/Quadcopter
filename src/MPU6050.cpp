@@ -158,7 +158,7 @@ void MPU6050::setGyroRange( char range ) {
     range = range & 0x03;
     temp = this->read(MPU6050_GYRO_CONFIG_REG);
     temp &= ~(3<<3);
-    temp = temp + range<<3;
+    temp = temp + (range<<3);
     this->write(MPU6050_GYRO_CONFIG_REG, temp);
 }
 
